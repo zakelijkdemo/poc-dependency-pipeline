@@ -19,5 +19,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'pnpm'
+    - name: Authenticate with private NPM package
+      run: echo "//pkgs.dev.azure.com/cznl/_packaging/CZ/npm/registry/:_authToken=${{ secrets.CZ_REGISTRY_TOKEN }}" > ~/.npmrc
     - name: Install dependencies
       run: pnpm install
