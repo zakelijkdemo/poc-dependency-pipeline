@@ -23,3 +23,24 @@ jobs:
       run: echo "//pkgs.dev.azure.com/cznl/_packaging/CZ/npm/registry/:_authToken=${{ secrets.CZ_REGISTRY_TOKEN }}" > ~/.npmrc
     - name: Install dependencies
       run: pnpm install
+    - name: Build Next.js
+      run: pnpm run build
+    - name: Setup Pages ⚙️
+      uses: actions/configure-pages@v4
+      with:
+        static_site_generator: next
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./out
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-22.04
+    needs: build
+    steps:
+    - name: Publish to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
