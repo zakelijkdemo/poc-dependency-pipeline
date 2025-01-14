@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+// GlobaL CSS from `@cz/cz-react-ui-library`
+import "@cz/cz-react-ui-library/dist/index.css";
+import "@cz/cz-react-ui-library/dist/css/global.scss";
+import "@cz/cz-react-ui-library/dist/css/theme_cz.css";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
