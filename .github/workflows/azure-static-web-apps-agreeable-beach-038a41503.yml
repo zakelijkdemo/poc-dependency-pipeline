@@ -49,6 +49,7 @@ jobs:
           app_location: 'src/dist'
           api_location: ''
           output_location: ''
+          skip_api_build=true
           skip_app_build: true
 
           # ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
