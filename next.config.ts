@@ -21,17 +21,14 @@ module.exports = {
   },
 
   async rewrites() {
-    return {
-      beforeFiles: [
-        {
-          source: '/((?!.swa).*)',
-          destinaton: '/',
-        }
-      ]
-    }
-  }
-
- };
+    return [
+      {
+        source: '/((?!.swa).*)',
+        destination: '/',
+      },
+    ];
+    },
+  };
 
 
 export default nextConfig;
