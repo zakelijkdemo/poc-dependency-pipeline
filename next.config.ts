@@ -6,27 +6,32 @@ const nextConfig: NextConfig = {
   output: "standalone",
   distDir: 'dist',	
   // basePath: "/poc-dependency-pipeline"
+};
 
+module.exports = {
+  ...nextConfig,
   async redirects() {
     return [
       {
-        source: '/((?!.swa).*)<YOUR MATCHING RULE>',
-        destination: '<YOUR REDIRECT RULE>', 
+        source: '/((?!.swa).*)',
+        destination: '/', 
         permanent: false,
       },
     ]
-},
-async rewrites() {
-  return {
+  },
+
+  async rewrites() {
+    return {
       beforeFiles: [
-          {
-              source: '/((?!.swa).*)<YOUR MATCHING RULE>',
-              destination: '<YOUR REWRITE RULE>', 
-          }
+        {
+          source: '/((?!.swa).*)',
+          destinaton: '/',
+        }
       ]
+    }
   }
-}
-};
+
+ };
 
 
 export default nextConfig;
